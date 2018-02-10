@@ -1,0 +1,19 @@
+The Psychic game
+
+we need to make the computer pick a random letter in the alphabet
+
+then the player choses a letter by pressing a key
+
+the player has 10 chances to guess before the computer picks another random letter
+
+if the player does not guess correctly in 10 guesses we need to add one to the loss counter
+
+if the player guesses correctly we need to add one to the wins counter
+
+when the player guesses a letter we need to add it to the list of guesses so far
+
+when the player makes a wrong guess we need to remove one from the guesses left counter
+
+when the player reaches 10 guesses we need to reset the guesses left counter
+
+when the player makes a correct guess we need to reset the guesses left and guesses so far list
