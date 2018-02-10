@@ -1,19 +1,32 @@
 The Psychic game
 
-we need to make the computer pick a random letter in the alphabet
+1. the main screen displays instructions, Wins:, Losses:, Guesses Left:, and Your Guesses so far:
+//To do this we need to write the permenant HTML, and then in javaScript define the 4 variables and give them a value of 0 and 10 for Guesses left
 
-then the player choses a letter by pressing a key
+2. we need to make the computer pick a random letter in the alphabet
+//To do this we need to first make an array of strings for each letter in the alphabet, then we need to make the computer chose a random index from that string.
 
-the player has 10 chances to guess before the computer picks another random letter
+3. then the player choses a letter by pressing a key
+//To do this we must create an on key press event in the javaScript
 
-if the player does not guess correctly in 10 guesses we need to add one to the loss counter
+4. the player has 10 chances to guess before the computer picks another random letter
+//Once the player reaches 10 guesses we need to write a function that can reset the counter to 10
 
-if the player guesses correctly we need to add one to the wins counter
+5. if the player does not guess correctly in 10 guesses we need to add one to the loss counter
+//inside the loop we need to set up a statement where the ++ attribute is called upon if it comes back as false
 
-when the player guesses a letter we need to add it to the list of guesses so far
+6. if the player guesses correctly we need to add one to the wins counter
+//this will also go in the for loop as an else if, and will also use the ++ attribute
 
-when the player makes a wrong guess we need to remove one from the guesses left counter
+7. when the player guesses a letter we need to add it to the list of guesses so far
+//This will probably be a function inside the for loop which will add the letter pressed to an array and write it to the HTML
 
-when the player reaches 10 guesses we need to reset the guesses left counter
+8. when the player makes a wrong guess we need to remove one from the guesses left counter
+// another one that goes in the for loop that will use the -- attribute 
 
-when the player makes a correct guess we need to reset the guesses left and guesses so far list
+9. when the player reaches 10 guesses we need to reset the guesses left counter
+// This will go inside the loop and should reset the counter to 10
+
+10. when the player makes a correct guess we need to reset the guesses left and guesses so far list
+// This will close off the loop and reset 2 of our counters by writing to the HTML directly
+
