@@ -46,6 +46,7 @@ updateGuessesLeft();
 //this function is run when the user presses a key.
 document.onkeypress = function(event) {
     var userGuess = string.fromCharCode(event.keyCode);
+    console.log(userGuess);
     guessLeft--;
 
     //This uses the push method to add the keypressed letter to the end of the guessedLetters
