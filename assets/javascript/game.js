@@ -20,7 +20,7 @@ var updateGuessesLeft = function () {
     document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessLeft;
 };
 
-var updateLetterToGuess = function () {
+var updatetoGuess = function () {
     this.toGuess = this.computerPick[Math.floor(Math.random() * this.computerPick.length)];
 };
 
@@ -35,17 +35,17 @@ var reset = function () {
     guessLeft = 9;
     guessedLetters = [];
 
-    updateLetterToGuess();
+    updatetoGuess();
     updateGuessesLeft();
     updateGuessesSoFar();
 }
 
-updateLetterToGuess();
+updatetoGuess();
 updateGuessesLeft();
 
 //this function is run when the user presses a key.
 document.onkeypress = function(event) {
-    var userGuess = string.fromCharCode(event.keyCode);
+    var userGuess = String.fromCharCode(event.keyCode);
     console.log(userGuess);
     guessLeft--;
 
@@ -56,7 +56,7 @@ document.onkeypress = function(event) {
 
     //If the user guesses correctly, This loop adds +1 to wins and resets our other counters.
     if (guessLeft > 0) {
-        if (userGuess === letterToGuess) {
+        if (userGuess === toGuess) {
             wins++;
             document.querySelector("#wins").innerHTML = "Wins: " + wins;
             reset();
