@@ -16,12 +16,12 @@ var computerThink = computerPick[Math.floor(Math.random() * computerPick.length)
 
 //Limits the users guesses
 var updateGuessesLeft = function () {
-    //This is where we take the HTML element and set it equal to guessesLeft.
-    document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessesLeft;
+    //This is where we take the HTML element and set it equal to guessLeft.
+    document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessLeft;
 };
 
 var updateLetterToGuess = function () {
-    this.toGuess = this.computerChoices[Math.floor(Math.random() * this.computerChoices.length)];
+    this.toGuess = this.computerPick[Math.floor(Math.random() * this.computerPick.length)];
 };
 
 var updateGuessesSoFar = function () {
@@ -30,9 +30,9 @@ var updateGuessesSoFar = function () {
 };
 
 //This function is will reset everything when the game begins again.
-var reset = function() {
+var reset = function () {
     totalGuesses = 9;
-    guessesLeft = 9;
+    guessLeft = 9;
     guessedLetters = [];
 
     updateLetterToGuess();
@@ -44,33 +44,29 @@ updateLetterToGuess();
 updateGuessesLeft();
 
 //this function is run when the user presses a key.
-document.onkeyup = function (event) {
-    guessesLeft--;
+document.onkeypress = function(event) {
+    var userGuess = string.fromCharCode(event.keyCode);
+    guessLeft--;
 
-    //This converts the key press in to a string and makes it lower case.
-    var userGuess = string.fromCharCode(event.keyCode).toLowerCase();
-
-    //This uses the push method to add the keypressed letter to the end of the array userGuess
+    //This uses the push method to add the keypressed letter to the end of the guessedLetters
     guessedLetters.push(userGuess);
     updateGuessesLeft();
     updateGuessesSoFar();
 
-        if (guessesLeft > 0) {
-            if (userGuess === letterToGuess) {
-                wins++;
-            }
+    //If the user guesses correctly, This loop adds +1 to wins and resets our other counters.
+    if (guessLeft > 0) {
+        if (userGuess === letterToGuess) {
+            wins++;
+            document.querySelector("#wins").innerHTML = "Wins: " + wins;
+            reset();
         }
-
-    // This Logic decides the outcome of the game, and changes the counters accordingly
-
-    if ((userGuess === computerThink)) {
-        wins++;
-        guessLeft = 10;
-        guessedLetters = 0;
-    }
-    else if ((userGuess != computerThink) && (guessLeft > 0)) {
-        guessLeft--;
     }
 
-
+    //If the user guesses incorrectly
+    else if (guessLeft === 0) {
+        losses++;
+        document.querySelector("#losses").innerHTML = "Losses: " + losses;
+        reset();
+    }
 };
+
